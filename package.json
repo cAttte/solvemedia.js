@@ -1,0 +1,27 @@
+{
+  "name": "solvemedia.js",
+  "version": "1.0.0",
+  "description": "A JavaScript package to get a captcha from SolveMedia's API and verify the user's answer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Santiago-MG/solvemedia.js.git"
+  },
+  "keywords": [
+    "solvemedia",
+    "captcha",
+    "captchas"
+  ],
+  "author": "santiagomg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Santiago-MG/solvemedia.js/issues"
+  },
+  "homepage": "https://github.com/Santiago-MG/solvemedia.js#readme",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
