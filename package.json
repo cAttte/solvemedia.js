@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/Santiago-MG/solvemedia.js#readme",
   "dependencies": {
-    "request": "^2.88.0"
+    "got": "^10.0.2"
   }
 }
