@@ -5,8 +5,8 @@ const AuthorizationError = require("./AuthorizationError")
  * Don't initialize this class manually, use `SolveMediaClient#getChallenge()` instead.
  */
 module.exports = class Challenge {
-    BASE_VERIFICATION_URL = "http://verify.solvemedia.com/papi/verify"
-    BASE_IMAGE_URL = "https://api-secure.solvemedia.com/papi/media?c="
+    static BASE_VERIFICATION_URL = "http://verify.solvemedia.com/papi/verify"
+    static BASE_IMAGE_URL = "https://api-secure.solvemedia.com/papi/media?c="
     /**
      * @param {String} body The body of the response by the SolveMedia API
      * @param {Object} auth The authorization keys
@@ -34,7 +34,7 @@ module.exports = class Challenge {
             throw new SolveMediaAPIError("Response body does not contain the necessary values.", "BODY_INCOMPLETE")
         this.auth = auth
         this.id = result.chid
-        this.imageURL = this.BASE_IMAGE_URL + this.id
+        this.imageURL = this.constructor.BASE_IMAGE_URL + this.id
         this.urlConsumed = false
         this.verified = false
     }
