@@ -6,7 +6,7 @@ const AuthorizationError = require("./AuthorizationError")
  */
 module.exports = class Challenge {
     static BASE_VERIFICATION_URL = "http://verify.solvemedia.com/papi/verify"
-    static BASE_IMAGE_URL = "https://api-secure.solvemedia.com/papi/media?c="
+    static BASE_IMAGE_URL = "https://api-secure.solvemedia.com/papi/media"
     /**
      * @param {String} body The body of the response by the SolveMedia API
      * @param {Object} auth The authorization keys
@@ -98,5 +98,25 @@ module.exports = class Challenge {
 
         this.answerChecked = true
         return answerIsValid
+    }
+
+    /**
+     * Get the URL of the image.
+     * @param {object?} options Options to personalize the image, may not work as expected
+     * @param {number?} options.width The width of the image
+     * @param {number?} options.height The height of the image
+     * @param {string?} options.foreground The foreground color of the image
+     * @param {string?} options.background The background color of the image
+     * @returns {string} The URL
+     */
+    getImageURL({ width = 300, height = 150, foreground = "000000", background = "f8f8f8" } = {}) {
+        if (this.urlConsumed)
+            throw new SolveMediaAPIError("URL_ALREADY_CONSUMED")
+        return this.constructor.BASE_IMAGE_URL
+            + `?c=${this.id}`
+            + `;w=${width}`
+            + `;h=${height}`
+            + `;fg=${foreground}`
+            + `;bg=${background}`
     }
 }
