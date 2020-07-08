@@ -24,7 +24,7 @@ const solvemedia = new SolveMediaClient()
     }])
     const verified = await challenge.verify(answer)
     console.log(verified ? "Hello, human!" : "Beep boop!" )
-})
+})()
 ```
 
 # Getting your auth keys
