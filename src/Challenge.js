@@ -40,7 +40,7 @@ module.exports = class Challenge {
         this.userIP = userIP
     }
 
-    async verify(answer) {
+    async verify(answer, authenticateResponse) {
         if (!this.auth || !(this.auth instanceof Object))
             throw new AuthorizationError("AUTH_MISSING")
         const { verificationKey, authenticationHashKey } = this.auth

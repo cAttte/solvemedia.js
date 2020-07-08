@@ -43,9 +43,8 @@ module.exports = class SolveMediaClient {
             const randomResponse = Math.random().toString().slice(2)
             if (verificationKey) {
                 await challenge.getImageURL()
-                await challenge.verify(randomResponse, null, authenticate)
+                await challenge.verify(randomResponse, authenticate)
             }
-            this.auth.validated = true
         }
         return this
     }
