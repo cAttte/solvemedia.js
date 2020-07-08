@@ -1,3 +1,4 @@
+const fs = require("fs")
 const fetch = require("node-fetch")
 const SolveMediaAPIError = require("./SolveMediaAPIError")
 const AuthorizationError = require("./AuthorizationError")
@@ -103,12 +104,12 @@ module.exports = class Challenge {
 
     /**
      * Get the URL of the image.
-     * @param {object?} options Options to personalize the image, may not work as expected
-     * @param {number?} options.width The width of the image
-     * @param {number?} options.height The height of the image
-     * @param {string?} options.foreground The foreground color of the image
-     * @param {string?} options.background The background color of the image
-     * @returns {string} The URL
+     * @param {Object?} options Options to personalize the image, may not work as expected
+     * @param {Number?} options.width The width of the image
+     * @param {Number?} options.height The height of the image
+     * @param {String?} options.foreground The foreground color of the image
+     * @param {String?} options.background The background color of the image
+     * @returns {String} The URL
      */
     getImageURL({ width = 300, height = 150, foreground = "000000", background = "f8f8f8" } = {}) {
         if (this.urlConsumed)
@@ -123,7 +124,7 @@ module.exports = class Challenge {
 
     /**
      * Get a buffer of the image.
-     * @param {Object?} imageOptions Options to personalize the image, will be passed to `getImageURL()`
+     * @param {Object?} imageOptions Options to personalize the image, passed to `getImageURL()`
      * @returns {Buffer} The buffer
      */
     async getImageBuffer(imageOptions) {
@@ -133,6 +134,19 @@ module.exports = class Challenge {
             throw new SolveMediaAPIError("URL_ALREADY_CONSUMED")
         this.urlConsumed = true
         const buffer = await response.buffer()
+        return buffer
+    }
+
+    /**
+     * Write the image to a file.
+     * @param {String} path The path of the new file
+     * @param {Object?} imageOptions Options to personalize the image, passed to `getImageURL()`
+     * @returns {Promise<Buffer>} The contents of the newly-created file
+     */
+    async writeImageToFile(path, imageOptions) {
+        if (!path) throw new TypeError("File path not specified.")
+        const buffer = await this.getImageBuffer(imageOptions)
+        await fs.promises.writeFile(path, buffer)
         return buffer
     }
 }
