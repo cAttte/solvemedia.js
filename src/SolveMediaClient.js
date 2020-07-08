@@ -51,8 +51,8 @@ module.exports = class SolveMediaClient {
 
     /**
      * Obtain a challenge/captcha from the SolveMedia API.
-     * @returns {Promise<Challenge>} The challenge
      * @param {String} userIP The IP of the user
+     * @returns {Promise<Challenge>} The challenge
      */
     async getChallenge(userIP = null) {
         if (!this.auth)

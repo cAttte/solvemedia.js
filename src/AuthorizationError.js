@@ -5,7 +5,6 @@ const SolveMediaAPIError = require("./SolveMediaAPIError")
  */
 module.exports = class AuthorizationError extends SolveMediaAPIError {
     /**
-     * @param {String} message The error message
      * @param {String} code The error code
      */
     constructor(code) {

@@ -25,8 +25,8 @@ const ERROR_MESSAGES = {
  */
 module.exports = class SolveMediaAPIError extends Error {
     /**
-     * @param {string} message The error message
-     * @param {string} code The error code
+     * @param {String} code The error code
+     * @param {String?} unknownErrorMessage The SM error message to format the "UNKNOWN_ERROR" message
      */
     constructor(code, unknownErrorMessage) {
         let message = ERROR_MESSAGES[code]
