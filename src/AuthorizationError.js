@@ -8,8 +8,8 @@ module.exports = class AuthorizationError extends SolveMediaAPIError {
      * @param {String} message The error message
      * @param {String} code The error code
      */
-    constructor(message, code) {
-        super(message, code)
+    constructor(code) {
+        super(code)
         this.name = "AuthorizationError"
     }
 }

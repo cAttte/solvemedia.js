@@ -26,7 +26,7 @@ module.exports = class SolveMediaClient {
      */
     async login(challengeKey, verificationKey = null, authenticationHashKey = null, validate = true) {
         if (!challengeKey)
-            throw new AuthorizationError("Challenge key not specified.", "NO_CKEY")
+            throw new AuthorizationError("CKEY_MISSING")
         if (!verificationKey)
             verificationKey = null
         if (!authenticationHashKey)
@@ -57,9 +57,9 @@ module.exports = class SolveMediaClient {
      */
     async getChallenge(userIP = null) {
         if (!this.auth)
-            throw new AuthorizationError("Credentials unavailable.", "MISSING_AUTH")
+            throw new AuthorizationError("AUTH_MISSING")
         if (!this.auth.challengeKey)
-            throw new AuthorizationError("Challenge key unavailable.", "MISSING_CKEY")
+            throw new AuthorizationError("CKEY_MISSING")
         const url = this.BASE_CHALLENGE_URL + this.auth.challengeKey
         const response = await fetch(url)
         const body = await response.text()
