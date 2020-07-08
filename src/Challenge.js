@@ -142,12 +142,17 @@ module.exports = class Challenge {
      * Write the image to a file.
      * @param {String} path The path of the new file
      * @param {Object?} imageOptions Options to personalize the image, passed to `getImageURL()`
-     * @returns {Promise<Buffer>} The contents of the newly-created file
+     * @returns {Promise<WritableStream>} The write stream of the created file
      */
     async writeImageToFile(path, imageOptions) {
         if (!path) throw new TypeError("File path not specified.")
-        const buffer = await this.getImageBuffer(imageOptions)
-        await fs.promises.writeFile(path, buffer)
-        return buffer
+        const url = this.getImageURL(imageOptions)
+        const stream = fs.createWriteStream(path)
+        const response = await fetch(url)
+        if (response.url.endsWith("media-error.gif"))
+            throw new SolveMediaAPIError("URL_ALREADY_CONSUMED")
+        this.urlConsumed = true
+        response.body.pipe(stream)
+        return stream
     }
 }
