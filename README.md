@@ -184,7 +184,7 @@ Promise<WritableStream>
 
 ## SolveMediaAPIError
 
-Thrown when the response from SolveMedia is either invalid, or contains an error (for example, trying to verify a challenge without consuming its URL). The possible errors are:
+Thrown when the response from SolveMedia is either invalid, or contains an error. The possible errors are:
 
 - `UNKNOWN_ERROR` (`Unknown error: {...}`)
 - `JSON_INVALID` (`Response body is not valid JSON.`)
