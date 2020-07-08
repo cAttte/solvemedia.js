@@ -73,9 +73,7 @@ Store and validate your SolveMedia credentials.
 
 #### Returns
 
-```
-Promise<SolveMediaClient>
-```
+**[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[SolveMediaClient](#solvemediaclient)>**
 
 ### getChallenge()
 
@@ -89,9 +87,7 @@ Obtain a challenge/captcha from the SolveMedia API.
 
 #### Returns
 
-```
-Promise<Challenge>
-```
+**[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[Challenge](#challenge)>**
 
 ## Challenge
 
@@ -125,9 +121,7 @@ Verify the user's answer. *Requires the verification key to be stored.*
 
 #### Returns
 
-```
-Promise<boolean>
-```
+**[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)>**
 
 ### getImageURL()
 
@@ -145,9 +139,7 @@ Get the URL of the image.
 
 #### Returns
 
-```
-string
-```
+**[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)**
 
 ### getImageBuffer()
 
@@ -161,9 +153,7 @@ Get the image as a buffer.
 
 #### Returns
 
-```
-Promise<Buffer>
-```
+**[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[Buffer](https://nodejs.org/api/buffer.html)>**
 
 ### writeImageToFile()
 
@@ -178,9 +168,7 @@ Write the image to a file, and consume the URL.
 
 #### Returns
 
-```
-Promise<WritableStream>
-```
+**[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[fs.WriteStream](https://nodejs.org/api/fs.html#fs_class_fs_writestream)>**
 
 ## SolveMediaAPIError
 
@@ -200,13 +188,17 @@ Thrown when the response from SolveMedia is either invalid, or contains an error
 
 The error code.
 
-**Type:** `string`
+#### Type
+
+**[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)**
 
 ### message
 
 The error message.
 
-**Type:** `string`
+### Type
+
+**[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)**
 
 ## AuthorizationError *(extends SolveMediaAPIError)*
 
