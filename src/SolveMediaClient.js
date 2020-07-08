@@ -7,7 +7,7 @@ const Challenge = require("./Challenge")
  * The client used for interacting with the API.
  */
 module.exports = class SolveMediaClient {
-    BASE_CHALLENGE_URL = "https://api-secure.solvemedia.com/papi/_challenge.js?k="
+    static BASE_CHALLENGE_URL = "https://api-secure.solvemedia.com/papi/_challenge.js"
     constructor() {
         this.auth = {
             challengeKey: null,
@@ -59,7 +59,7 @@ module.exports = class SolveMediaClient {
             throw new AuthorizationError("AUTH_MISSING")
         if (!this.auth.challengeKey)
             throw new AuthorizationError("CKEY_MISSING")
-        const url = this.BASE_CHALLENGE_URL + this.auth.challengeKey
+        const url = `${this.constructor.BASE_CHALLENGE_URL}?k=${this.auth.challengeKey}`
         const response = await fetch(url)
         const body = await response.text()
         return new Challenge(body, this.auth, userIP)
