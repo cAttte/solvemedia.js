@@ -49,7 +49,7 @@ SolveMedia also requires for the image URL to be used before verifying it; not d
 # API
 
 ```js
-const { SolveMediaClient } = require("solvemedia.js")
+const { SolveMediaClient, Challenge, SolveMediaAPIError, AuthorizationError } = require("solvemedia.js")
 ```
 
 ## SolveMediaClient
@@ -98,16 +98,19 @@ Promise<Challenge>
 You probably shouldn't initialize this class manually, use `SolveMediaClient#getChallenge()` instead.
 
 ```js
-new Challenge()
+new Challenge(body, auth, userIP)
 ```
 
 ### Constructor parameters
 
-| name   | description                       | type   | default |
-|--------|-----------------------------------|--------|---------|
-| body   | The response body from SolveMedia | string |         |
-| auth   | The client's authorization keys   | object |         |
-| userIP | The user's IP                     | string |         |
+| name                       | description                          | type   | default |
+|----------------------------|--------------------------------------|--------|---------|
+| body                       | Options to personalize the image     | string |         |
+| auth                       | The client's authorization keys      | object |         |
+| auth.challengeKey          | The client's challenge key           | string |         |
+| auth.verificationKey       | The client's verification key        | string | `null`  |
+| auth.authenticationHashKey | The client's authentication hash key | string | `null`  |
+| userIP                     | The user's IP                        | string |         |
 
 ### verify()
 
