@@ -1,6 +1,6 @@
 # solvemedia.js
 
-solvemedia.js is a wrapper to get captchas from the SolveMedia API!
+solvemedia.js is an (unofficial) JavaScript wrapper to get captchas from the SolveMedia API!
 
 # Quick example
 

@@ -1,7 +1,7 @@
 {
   "name": "solvemedia.js",
   "version": "1.0.0",
-  "description": "A JavaScript package to get a captcha from SolveMedia's API and verify the user's answer.",
+  "description": "solvemedia.js is an (unofficial) JavaScript wrapper to get captchas from the SolveMedia API!",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
