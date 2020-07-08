@@ -54,13 +54,13 @@ module.exports = class Challenge {
             throw new SolveMediaAPIError("URL_NOT_CONSUMED")
         if (!this.userIP) {
             const R = () => Math.floor(Math.random() * 255)
-            userIP = [R(), R(), R(), R()].join(".")
-        } else if (typeof userIP !== "string") {
+            this.userIP = [R(), R(), R(), R()].join(".")
+        } else if (typeof this.userIP !== "string") {
             throw new SolveMediaAPIError("IP_INVALID")
         }
         const url = this.BASE_VERIFICATION_URL
             + `?privatekey=${this.auth.verificationKey}`
-            + `&remoteip=${userIP}`
+            + `&remoteip=${this.userIP}`
             + `&challenge=${this.id}`
             + `&response=${encodeURIComponent(answer.toString())}`
         const response = await fetch(url, { method: "POST" })
