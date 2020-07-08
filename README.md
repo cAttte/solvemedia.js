@@ -196,13 +196,17 @@ Thrown when the response from SolveMedia is either invalid, or contains an error
 - `CHALLENGE_INVALID` (`Invalid challenge ID.`)
 - `CHALLENGE_EXPIRED` (`This challenge has expired.`)
 
+### code
+
+The error code.
+
+**Type:** `string`
+
 ### message
 
 The error message.
 
-### code
-
-The error code.
+**Type:** `string`
 
 ## AuthorizationError *(extends SolveMediaAPIError)*
 
