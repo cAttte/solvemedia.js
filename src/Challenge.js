@@ -52,7 +52,7 @@ module.exports = class Challenge {
             throw new SolveMediaAPIError("CHALLENGE_ALREADY_VERIFIED")
         if (!this.urlConsumed)
             throw new SolveMediaAPIError("URL_NOT_CONSUMED")
-        if (!userIP) {
+        if (!this.userIP) {
             const R = () => Math.floor(Math.random() * 255)
             userIP = [R(), R(), R(), R()].join(".")
         } else if (typeof userIP !== "string") {
