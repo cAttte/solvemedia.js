@@ -1,3 +1,4 @@
+const crypto = require("crypto")
 const fs = require("fs")
 const fetch = require("node-fetch")
 const SolveMediaAPIError = require("./SolveMediaAPIError")
