@@ -38,7 +38,7 @@ module.exports = class Challenge {
         this.auth = auth
         this.id = result.chid
         this.imageURL = this.constructor.BASE_IMAGE_URL + this.id
-        this.urlConsumed = false
+        this.imageUsed = false
         this.answerChecked = false
         this.userIP = userIP
     }
@@ -59,8 +59,8 @@ module.exports = class Challenge {
             throw new AuthorizationError("HKEY_MISSING")
         if (this.answerChecked)
             throw new SolveMediaAPIError("CHALLENGE_ALREADY_VERIFIED")
-        if (!this.urlConsumed)
-            throw new SolveMediaAPIError("URL_NOT_CONSUMED")
+        if (!this.imageUsed)
+            throw new SolveMediaAPIError("IMAGE_UNUSED")
         if (!this.userIP) {
             const R = () => Math.floor(Math.random() * 255)
             this.userIP = [R(), R(), R(), R()].join(".")
@@ -94,7 +94,7 @@ module.exports = class Challenge {
             if (reason === "already checked")
                 throw new SolveMediaAPIError("CHALLENGE_ALREADY_VERIFIED")
             else if (reason === "unknown challenge" || reason === "puzzle not found")
-                throw new SolveMediaAPIError("URL_NOT_CONSUMED")
+                throw new SolveMediaAPIError("IMAGE_UNUSED")
             else if (reason === "invalid challenge")
                 throw new SolveMediaAPIError("CHALLENGE_INVALID")
             else if (reason === "invalid remoteip")
@@ -119,8 +119,8 @@ module.exports = class Challenge {
      * @returns {String} The URL
      */
     getImageURL({ width = 300, height = 150, foreground = "000000", background = "f8f8f8" } = {}) {
-        if (this.urlConsumed)
-            throw new SolveMediaAPIError("URL_ALREADY_CONSUMED")
+        if (this.imageUsed)
+            throw new SolveMediaAPIError("IMAGE_USED")
         return this.constructor.BASE_IMAGE_URL
             + `?c=${this.id}`
             + `;w=${width}`
@@ -138,8 +138,8 @@ module.exports = class Challenge {
         const url = this.getImageURL(imageOptions)
         const response = await fetch(url)
         if (response.url.endsWith("media-error.gif"))
-            throw new SolveMediaAPIError("URL_ALREADY_CONSUMED")
-        this.urlConsumed = true
+            throw new SolveMediaAPIError("IMAGE_USED")
+        this.imageUsed = true
         const buffer = await response.buffer()
         return buffer
     }
@@ -156,8 +156,8 @@ module.exports = class Challenge {
         const stream = fs.createWriteStream(path)
         const response = await fetch(url)
         if (response.url.endsWith("media-error.gif"))
-            throw new SolveMediaAPIError("URL_ALREADY_CONSUMED")
-        this.urlConsumed = true
+            throw new SolveMediaAPIError("IMAGE_USED")
+        this.imageUsed = true
         response.body.pipe(stream)
         return stream
     }

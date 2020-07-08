@@ -12,8 +12,8 @@ const ERROR_MESSAGES = {
     HKEY_MISSING: "Authentication hash key is unavailable.",
     RESPONSE_NOT_AUTHENTIC: "The response is not authentic, or the authentication hash key is invalid.",
     // others
-    URL_NOT_CONSUMED: "The image URL has to be consumed before verifying an answer.",
-    URL_ALREADY_CONSUMED: "The image URL has already been consumed.",
+    IMAGE_UNUSED: "The image URL has to be used before verifying an answer.",
+    IMAGE_USED: "The image URL has already been used.",
     IP_INVALID: "Invalid IP address.",
     CHALLENGE_ALREADY_VERIFIED: "This challenge has already been verified.",
     CHALLENGE_INVALID: "Invalid challenge ID.",
