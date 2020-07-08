@@ -172,21 +172,34 @@ Write the image to a file, and consume the URL.
 
 ## SolveMediaAPIError
 
-Thrown when the response from SolveMedia is either invalid, or contains an error. The possible errors are:
+Thrown when the response from SolveMedia is either invalid, or contains an error.
 
-- `UNKNOWN_ERROR` (`Unknown error: {...}`)
-- `JSON_INVALID` (`Response body is not valid JSON.`)
-- `BODY_INCOMPLETE` (`Response body does not contain the necessary values.`)
-- `IMAGE_UNUSED` (`The image URL has to be used before verifying an answer.`)
-- `IMAGE_USED` (`The image URL has already been used.`)
-- `IP_INVALID` (`Invalid IP address.`)
-- `CHALLENGE_ALREADY_VERIFIED` (`This challenge has already been verified.`)
-- `CHALLENGE_INVALID` (`Invalid challenge ID.`)
-- `CHALLENGE_EXPIRED` (`This challenge has expired.`)
+```js
+new SolveMediaAPIError(code, unknownErrorMessage)
+```
+
+### Constructor parameters
+
+| name                | description                                                | type   | default |
+|---------------------|------------------------------------------------------------|--------|---------|
+| code                | The error code                                             | string |         |
+| unknownErrorMessage | The SM error message to format the "UNKNOWN_ERROR" message | string | `null`  |
 
 ### code
 
 The error code.
+
+The possible error codes are:
+
+- `UNKNOWN_ERROR`: `Unknown error: {...}`
+- `JSON_INVALID`: `Response body is not valid JSON.`
+- `BODY_INCOMPLETE`: `Response body does not contain the necessary values.`
+- `IMAGE_UNUSED`: `The image URL has to be used before verifying an answer.`
+- `IMAGE_USED`: `The image URL has already been used.`
+- `IP_INVALID`: `Invalid IP address.`
+- `CHALLENGE_ALREADY_VERIFIED`: `This challenge has already been verified.`
+- `CHALLENGE_INVALID`: `Invalid challenge ID.`
+- `CHALLENGE_EXPIRED`: `This challenge has expired.`
 
 #### Type
 
@@ -202,12 +215,28 @@ The error message.
 
 ## AuthorizationError *(extends SolveMediaAPIError)*
 
-Thrown when the provided credentials are invalid or unavailable to the client. The possible errors are:
+Thrown when the provided credentials are invalid or unavailable to the client.
 
-- `AUTH_MISSING` (`Credentials are unavailable.`)
-- `CKEY_MISSING` (`Challenge key is unavailable.`)
-- `CKEY_INVALID` (`Invalid challenge key.`)
-- `VKEY_MISSING` (`Verification key is unavailable.`)
-- `VKEY_INVALID` (`Invalid verification key.`)
-- `HKEY_MISSING` (`Authentication hash key is unavailable.`)
-- `RESPONSE_NOT_AUTHENTIC` (`The response is not authentic, or the authentication hash key is invalid.`)
+```js
+new SolveMediaAPIError(code, unknownErrorMessage)
+```
+
+### Constructor parameters
+
+| name                | description                                                | type   | default |
+|---------------------|------------------------------------------------------------|--------|---------|
+| code                | The error code                                             | string |         |
+
+### code
+
+The error code.
+
+The possible error codes are:
+
+- `AUTH_MISSING`: `Credentials are unavailable.`
+- `CKEY_MISSING`: `Challenge key is unavailable.`
+- `CKEY_INVALID`: `Invalid challenge key.`
+- `VKEY_MISSING`: `Verification key is unavailable.`
+- `VKEY_INVALID`: `Invalid verification key.`
+- `HKEY_MISSING`: `Authentication hash key is unavailable.`
+- `RESPONSE_NOT_AUTHENTIC`: `The response is not authentic, or the authentication hash key is invalid.`
