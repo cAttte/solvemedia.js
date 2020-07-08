@@ -1,3 +1,4 @@
+const fetch = require("node-fetch")
 const SolveMediaAPIError = require("./SolveMediaAPIError")
 const AuthorizationError = require("./AuthorizationError")
 
@@ -118,5 +119,18 @@ module.exports = class Challenge {
             + `;h=${height}`
             + `;fg=${foreground}`
             + `;bg=${background}`
+    }
+
+    /**
+     * Get a buffer of the image.
+     * @param {Object?} imageOptions Options to personalize the image, will be passed to `getImageURL()`
+     * @returns {Buffer} The buffer
+     */
+    async getImageBuffer(imageOptions) {
+        const url = this.getImageURL(imageOptions)
+        const response = await fetch(url)
+        if (response.url.endsWith("media-error.gif"))
+            throw new SolveMediaAPIError("URL_ALREADY_CONSUMED")
+        this.urlConsumed = true
     }
 }

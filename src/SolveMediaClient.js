@@ -42,7 +42,7 @@ module.exports = class SolveMediaClient {
             const authenticate = Boolean(this.auth.authenticationHashKey)
             const randomResponse = Math.random().toString().slice(2)
             if (verificationKey) {
-                await challenge.getImageURL()
+                await challenge.getImageBuffer()
                 await challenge.verify(randomResponse, authenticate)
             }
         }
