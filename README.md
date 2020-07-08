@@ -209,7 +209,7 @@ The possible error codes are:
 
 The error message.
 
-### Type
+#### Type
 
 **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)**
 
@@ -223,9 +223,9 @@ new SolveMediaAPIError(code, unknownErrorMessage)
 
 ### Constructor parameters
 
-| name                | description                                                | type   | default |
-|---------------------|------------------------------------------------------------|--------|---------|
-| code                | The error code                                             | string |         |
+| name                | description    | type   | default |
+|---------------------|----------------|--------|---------|
+| code                | The error code | string |         |
 
 ### code
 
@@ -240,3 +240,7 @@ The possible error codes are:
 - `VKEY_INVALID`: `Invalid verification key.`
 - `HKEY_MISSING`: `Authentication hash key is unavailable.`
 - `RESPONSE_NOT_AUTHENTIC`: `The response is not authentic, or the authentication hash key is invalid.`
+
+#### Type
+
+**[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)**
