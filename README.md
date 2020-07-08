@@ -157,7 +157,7 @@ Get the image as a buffer.
 
 ### writeImageToFile()
 
-Write the image to a file, and consume the URL.
+Write the image to a file.
 
 #### Parameters
 
