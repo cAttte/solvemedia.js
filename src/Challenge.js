@@ -58,10 +58,10 @@ module.exports = class Challenge {
         } else if (typeof this.userIP !== "string") {
             throw new SolveMediaAPIError("IP_INVALID")
         }
-        const url = this.BASE_VERIFICATION_URL
-            + `?privatekey=${this.auth.verificationKey}`
-            + `&remoteip=${this.userIP}`
-            + `&challenge=${this.id}`
+        const url = this.constructor.BASE_VERIFICATION_URL
+            + `?privatekey=${encodeURIComponent(this.auth.verificationKey)}`
+            + `&remoteip=${encodeURIComponent(this.userIP)}`
+            + `&challenge=${encodeURIComponent(this.id)}`
             + `&response=${encodeURIComponent(answer.toString())}`
         const response = await fetch(url, { method: "POST" })
         const body = await response.text()
