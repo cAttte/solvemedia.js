@@ -27,7 +27,7 @@ const solvemedia = new SolveMediaClient()
 })
 ```
 
-# Getting your keys!
+# Getting your auth keys
 
 - Register/login at [SolveMedia](https://www.solvemedia.com/)
 - If you aren't already there, go to the [Portal](https://portal.solvemedia.com/portal/)
@@ -36,9 +36,10 @@ const solvemedia = new SolveMediaClient()
 - Enter whatever you want, and click on **Submit**
 - You should now see your site in the list, click **Keys**
 - Done! You should see a **Challenge Key**, a **Verification Key**, and an **Authentication Hash Key**!
-- I recommend storing your authorization keys in a `.env` file and using a library like [`dotenv`](https://www.npmjs.com/package/dotenv), if your project is open source.
 
-# Using URLs
+I recommend storing your authorization keys in a `.env` file and using a library like [`dotenv`](https://www.npmjs.com/package/dotenv), if your project is open source.
+
+# Using the image URLs
 
 In SolveMedia, once a client has requested the image of a certain challenge, it will start redirecting following requests to a ["media error" image](https://api-secure.solvemedia.com/media/media-error.gif).
 
