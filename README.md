@@ -27,6 +27,16 @@ const solvemedia = new SolveMediaClient()
 })()
 ```
 
+## Result
+
+This is `captcha.png`:
+
+![](https://i.imgur.com/rHCaMdI.png)
+
+This is the CLI itself (running the program twice):
+
+![](https://i.imgur.com/2YIqAig.png)
+
 # Getting your auth keys
 
 - Register/login at [SolveMedia](https://www.solvemedia.com/)
