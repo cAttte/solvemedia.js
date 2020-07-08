@@ -132,5 +132,7 @@ module.exports = class Challenge {
         if (response.url.endsWith("media-error.gif"))
             throw new SolveMediaAPIError("URL_ALREADY_CONSUMED")
         this.urlConsumed = true
+        const buffer = await response.buffer()
+        return buffer
     }
 }
