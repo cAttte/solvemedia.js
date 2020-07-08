@@ -84,7 +84,7 @@ Store and validate your SolveMedia credentials.
 
 #### Returns
 
-**[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[SolveMediaClient](#solvemediaclient)>**
+**[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[SolveMediaClient](#SolveMediaClient)>**
 
 ### getChallenge()
 
@@ -98,7 +98,7 @@ Obtain a challenge/captcha from the SolveMedia API.
 
 #### Returns
 
-**[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[Challenge](#challenge)>**
+**[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[Challenge](#Challenge)>**
 
 ## Challenge
 
