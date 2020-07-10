@@ -1,6 +1,6 @@
-<img src="https://i.imgur.com/Rh8pi0x.png" align="right" width="300">
-
 # solvemedia.js
+
+<img src="https://i.imgur.com/Rh8pi0x.png" align="right" width="300">
 
 An OOP JavaScript wrapper for the SolveMedia API.
 
