@@ -1,6 +1,8 @@
+<img src="https://i.imgur.com/Rh8pi0x.png" align="right" width="300">
+
 # solvemedia.js
 
-solvemedia.js is an (unofficial) JavaScript wrapper to get captchas from the SolveMedia API!
+An OOP JavaScript wrapper for the SolveMedia API.
 
 # Quick example
 
