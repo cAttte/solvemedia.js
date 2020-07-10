@@ -2,7 +2,7 @@
 
 <img src="https://i.imgur.com/Rh8pi0x.png" align="right" width="300">
 
-An OOP JavaScript wrapper for the SolveMedia API.
+An (unofficial) JavaScript wrapper for the SolveMedia API.
 
 # Quick example
 
